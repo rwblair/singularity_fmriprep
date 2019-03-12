@@ -15,16 +15,16 @@ cache: pip
 #  - "/tmp/singularity"
 
 before_install:
-- docker login -u $SINGULARITY_DOCKER_USERNAME -p $SINGULARITY_DOCKER_PASSWORD
+  - docker login -u $SINGULARITY_DOCKER_USERNAME -p $SINGULARITY_DOCKER_PASSWORD
 
 #script: /bin/bash build.sh
-script: travis_wait 40 docker run -v /var/run/docker.sock:/var/run/docker.sock -v $TRAVIS_BUILD_DIR/:/output --privileged -t --rm singularityware/docker2singularity:v2.5 -m "/tsd /cluster /usit /scratch" poldracklab/fmriprep
+script: travis_wait 40 docker run -v /var/run/docker.sock:/var/run/docker.sock -v $TRAVIS_BUILD_DIR/:/output --privileged -t --rm singularityware/docker2singularity:v2.6 -m "/tsd /cluster /usit /scratch" --name fmriprep poldracklab/fmriprep
 
 deploy:
   provider: releases
   user: $GITHUB_USERNAME
   password: $GITHUB_PASSWORD
   file_glob: true
-  file: $TRAVIS_BUILD_DIR/*img
+  file: $TRAVIS_BUILD_DIR/fmriprep.simg
   skip_cleanup: true
   draft: true
