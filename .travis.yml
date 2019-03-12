@@ -1,0 +1,23 @@
+language: minimal
+
+sudo: true
+
+os: linux
+
+#python:
+#  - "3.5"
+
+services:
+  - docker
+
+cache: pip
+#  directories:
+#  - "/tmp/singularity"
+
+before_install:
+- docker login -u $SINGULARITY_DOCKER_USERNAME -p $SINGULARITY_DOCKER_PASSWORD
+- sudo chmod +rx build.sh
+
+#script: /bin/bash build.sh
+script: travis_wait 40 docker run -v /var/run/docker.sock:/var/run/docker.sock -v $TRAVIS_BUILD_DIR/:/output --privileged -t --rm singularityware/docker2singularity:v2.5 -m "/tsd /cluster /usit /scratch" poldracklab/fmriprep
+
