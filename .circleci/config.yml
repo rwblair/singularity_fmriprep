@@ -6,8 +6,8 @@ jobs:
      - checkout
      - run: |
          docker login -u $SINGULARITY_DOCKER_USERNAME -p $SINGULARITY_DOCKER_PASSWORD
-         docker run -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/:/output/ --privileged -t --rm singularityware/docker2singularity:v2.3 -m "/tsd /cluster /usit /scratch" kasbohm/docker2singularity-tsd     
-#         docker run -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/:/output/ --privileged -t --rm singularityware/docker2singularity:v2.3 -m "/tsd /cluster /usit /scratch" poldracklab/fmriprep     
+         docker run -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/:/output/ --privileged -t --rm singularityware/docker2singularity:v2.3 -m "/tsd /cluster /usit /scratch" poldracklab/fmriprep     
+#         docker run -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/:/output/ --privileged -t --rm singularityware/docker2singularity:v2.3 -m "/tsd /cluster /usit /scratch" kasbohm/docker2singularity-tsd     
      
 #deploy:
 #  provider: releases
@@ -16,3 +16,17 @@ jobs:
 #  file: $TRAVIS_BUILD_DIR/*.img
 #  skip_cleanup: true
 #  draft: true
+
+#dependencies:
+#  pre:
+#    - go get github.com/tcnksm/ghr
+
+#compile:
+#  override:
+#    - ant package
+
+#deployment:
+#  release:
+#    tag: /(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)/
+#    commands:
+#      - ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME --replace `git describe --tags` output/
