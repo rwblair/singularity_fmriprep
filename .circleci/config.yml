@@ -6,7 +6,7 @@ jobs:
      - checkout
      - run: |
          docker login -u $SINGULARITY_DOCKER_USERNAME -p $SINGULARITY_DOCKER_PASSWORD
-         docker run -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/:/output/ --privileged -t --rm singularityware/docker2singularity:v2.3 -m "/tsd /cluster /usit /scratch" kasbohm/docker2singularity-tsd     
+         docker run -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/:/output/ --privileged -t --rm singularityware/docker2singularity:v2.3 -m "/tsd /cluster /usit /scratch" poldracklab/fmriprep     
      
 #deploy:
 #  provider: releases
