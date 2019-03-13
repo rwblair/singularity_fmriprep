@@ -18,10 +18,11 @@ before_install:
   - docker login -u $SINGULARITY_DOCKER_USERNAME -p $SINGULARITY_DOCKER_PASSWORD
 
 #script: /bin/bash build.sh
-script: travis_wait 40 docker run -v /var/run/docker.sock:/var/run/docker.sock -v $TRAVIS_BUILD_DIR/:/output --privileged -t --rm singularityware/docker2singularity:v2.3 -m "/tsd /cluster /usit /scratch" kasbohm/docker2singularity-tsd && ls $TRAVIS_BUILD_DIR/
+script: docker run -v /var/run/docker.sock:/var/run/docker.sock -v $TRAVIS_BUILD_DIR/:/output --privileged -t --rm singularityware/docker2singularity:v2.3 -m "/tsd /cluster /usit /scratch" kasbohm/docker2singularity-tsd && ls $TRAVIS_BUILD_DIR/
+#script: travis_wait 40 docker run -v /var/run/docker.sock:/var/run/docker.sock -v $TRAVIS_BUILD_DIR/:/output --privileged -t --rm singularityware/docker2singularity:v2.3 -m "/tsd /cluster /usit /scratch" kasbohm/docker2singularity-tsd && ls $TRAVIS_BUILD_DIR/
 deploy:
   provider: releases
-  github-token: "$GITHUB_TOKEN"
+  api_key: "$GITHUB_TOKEN"
   file_glob: true
   file: $TRAVIS_BUILD_DIR/*.img
   skip_cleanup: true
