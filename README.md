@@ -2,7 +2,7 @@
 Committing to this repo trigger an autobuild of a singularity image from a docker image. 
 
 To autobuild latest, enter a comment in [Singularity.latest](Singularity.latest)
-To build specific versions/tags, simply create a new Singularity.[tag] file, and make sure to change the tag in the file.
+To build specific versions/tags, simply change the Singularity.[tag], and make sure to change the tag in the file as well.
 
 ``` 
 From: REPO/IMAGE:[tag/version]
