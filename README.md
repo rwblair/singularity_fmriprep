@@ -1,4 +1,7 @@
 # fmriprep singularity images
+
+[![https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg](https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg)](https://singularity-hub.org/collections/2529)
+
 Commits to this repo triggers autobuild of a singularity image from a docker image, and adds folders needed to work on TSD/HPC.
 
 To autobuild latest, enter a comment in [Singularity.latest](Singularity.latest)
