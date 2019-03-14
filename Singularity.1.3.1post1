@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: poldracklab/fmriprep:1.3.1post2
+From: poldracklab/fmriprep:1.3.1post1
 IncludeCmd: yes
 
 %post
