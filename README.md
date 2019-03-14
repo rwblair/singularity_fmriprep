@@ -1,5 +1,5 @@
 # fmriprep singularity images
-Committing to this repo trigger an autobuild of a singularity image from a docker image. 
+Commits to this repo triggers autobuild of a singularity image from a docker image, and adds folders needed to work on TSD/HPC.
 
 To autobuild latest, enter a comment in [Singularity.latest](Singularity.latest)
 To build specific versions/tags, simply change the Singularity.[tag], and make sure to change the tag in the file as well.
