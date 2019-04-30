@@ -1,8 +1,0 @@
-Bootstrap: docker
-From: poldracklab/fmriprep:latest
-IncludeCmd: yes
-
-%post
-    mkdir -p /tsd /usit /cluster /scratch
-
-# Bump
