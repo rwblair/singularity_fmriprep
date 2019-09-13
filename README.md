@@ -18,4 +18,3 @@ Images are built at https://www.singularity-hub.org/collections/2529, and can be
 docker run --rm -it -v $PWD/:/root/.singularity/shub/:rw vanessa/sregistry-cli pull shub://kasbohm/singularity_fmriprep[TAG]
 
 ```
-
