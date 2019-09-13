@@ -6,3 +6,5 @@
      steps:
        - checkout
        - run: echo "ok"
+       - deploy: 
+         - command: echo "ko"
