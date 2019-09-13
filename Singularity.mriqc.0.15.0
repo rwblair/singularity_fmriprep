@@ -1,0 +1,7 @@
+Bootstrap: docker
+FROM: poldracklab/mriqc:0.15.0
+
+%post
+    apt-get update && apt-get -y purge libgsl2 && apt-get -y  install libgsl2
+    mkdir /tsd /cluster /scratch /usit 
+ 
